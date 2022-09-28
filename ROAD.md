@@ -11,6 +11,4 @@
 
 Configurar o kubeconfig
 
-aws eks update-kubeconfig \
-    --region sa-east-1 \
-    --name my-cluster \
+aws eks update-kubeconfig --region sa-east-1 --name my-cluster

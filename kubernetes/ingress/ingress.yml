@@ -10,23 +10,23 @@ spec:
   ingressClassName: nginx
   rules:
     - http:
-      paths:
-      - pathType: Prefix
-        path: "/blue"
-        backend:
-          service:
-            name: app-blue
-            port: 
-              number: 8080
+        paths:
+        - pathType: Prefix
+          path: "/blue"
+          backend:
+            service:
+              name: app-blue
+              port: 
+                number: 8080
     - http:
-      paths:
-      - pathType: Prefix
-        path: "/green"
-        backend:
-          service:
-            name: app-green
-            port:
-              number: 8080
+        paths:
+        - pathType: Prefix
+          path: "/green"
+          backend:
+            service:
+              name: app-green
+              port:
+                number: 8080
 #---
 #apiVersion: networking.k8s.io/v1
 #kind: Ingress
@@ -54,7 +54,7 @@ spec:
 #        path: "/"
 #        backend:
 #          service:
-#            name: app-blue
+#            name: app-green
 #            port: 
 #              number: 8080
 #---
