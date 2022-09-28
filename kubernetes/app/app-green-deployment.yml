@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-green
+spec:
+  selector:
+    matchLabels:
+      app: app-green
+  template:
+    metadata:
+      labels:
+        app: app-green
+    spec:
+      containers:
+      - name: app-green
+        image: luliveira/greenapp
+        resources: {}
+#          limits:
+#            memory: "128Mi"
+#            cpu: "500m"
+        ports:
+        - containerPort: 8080
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                topologyKey: kubernetes.io/hostname
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - "app-green"
+              weight: 1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-green
+spec:
+  selector:
+    app: app-green
+  ports:
+  - port: 8080
+    targetPort: 8080

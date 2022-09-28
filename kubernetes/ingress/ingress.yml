@@ -1,0 +1,75 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-subdominio
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  labels:
+    name: ingress-subdominio
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+      paths:
+      - pathType: Prefix
+        path: "/blue"
+        backend:
+          service:
+            name: app-blue
+            port: 
+              number: 8080
+    - http:
+      paths:
+      - pathType: Prefix
+        path: "/green"
+        backend:
+          service:
+            name: app-green
+            port:
+              number: 8080
+#---
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: ingress-dominio
+#  labels:
+#    name: ingress-dominio
+#spec:
+#  ingressClassName: nginx
+#  rules:
+#  - host: blue.*.nip.io
+#    http:
+#      paths:
+#      - pathType: Prefix
+#        path: "/"
+#        backend:
+#          service:
+#            name: app-blue
+#            port: 
+#              number: 8080
+#  - host: green.*.nip.io
+#    http:
+#      paths:
+#      - pathType: Prefix
+#        path: "/"
+#        backend:
+#          service:
+#            name: app-blue
+#            port: 
+#              number: 8080
+#---
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: ingress-default
+#  labels:
+#    name: ingress-default
+#spec:
+#  ingressClassName: nginx
+#  defaultBackend:
+#    service:
+#      name: nginx
+#      port:
+#        number: 80
+#
+
