@@ -1,11 +1,11 @@
-Criar um EKS
-Criar um node group
-Criar uma aplicação green
-Criar uma aplicação blue
-Subir a aplicação para o node group
-Criar um ingress controller
-Criar outro node group
-Criar politicas de afinidade para os pods
+- Criar um EKS
+- Criar um node group
+- Criar uma aplicação green
+- Criar uma aplicação blue
+- Subir a aplicação para o node group
+- Criar um ingress controller
+- Criar outro node group
+- Criar politicas de afinidade para os pods
 
 ==============================
 
