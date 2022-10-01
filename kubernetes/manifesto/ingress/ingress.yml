@@ -42,7 +42,7 @@ spec:
 #spec:
 #  ingressClassName: nginx
 #  rules:
-#  - host: blue.*.nip.io
+#  - host: blue.aws.nip.io
 #    http:
 #      paths:
 #      - pathType: Prefix
@@ -52,7 +52,7 @@ spec:
 #            name: app-blue
 #            port: 
 #              number: 8080
-#  - host: green.*.nip.io
+#  - host: green.aws.nip.io
 #    http:
 #      paths:
 #      - pathType: Prefix
